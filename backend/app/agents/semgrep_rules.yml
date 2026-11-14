@@ -1,0 +1,35 @@
+rules:
+  - id: devsecure.python.eval-use
+    languages: [python]
+    severity: ERROR
+    message: Insecure use of eval()
+    metadata: {cwe: "CWE-95", owasp: "A03 Injection"}
+    pattern: eval(...)
+  - id: devsecure.python.subprocess-shell-true
+    languages: [python]
+    severity: ERROR
+    message: Using subprocess with shell=True
+    metadata: {cwe: "CWE-78", owasp: "A03 Injection"}
+    pattern: subprocess.$FUNC(..., shell=True, ...)
+  - id: devsecure.python.sqli-fstring
+    languages: [python]
+    severity: ERROR
+    message: Possible SQL injection risk
+    metadata: {cwe: "CWE-89", owasp: "A03 Injection"}
+    patterns:
+      - pattern-either:
+          - pattern: |
+              $Q = f"..."
+              ...
+              $CONN.execute($Q, ...)
+          - pattern: $CONN.execute(f"...", ...)
+  - id: devsecure.python.pydantic-unvalidated-email
+    languages: [python]
+    severity: WARNING
+    message: Missing input validation
+    metadata: {cwe: "CWE-20", owasp: "A03 Injection"}
+    patterns:
+      - pattern-inside: |
+          class $M(BaseModel):
+            ...
+      - pattern: "email: str"

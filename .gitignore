@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+backend/.venv/
+
+# Runtime data (database, bus secret, generated reports, generated projects)
+backend/data/
+backend/workspaces/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
