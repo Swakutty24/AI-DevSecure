@@ -103,7 +103,6 @@ backend/
 frontend/src/
   pages/           Dashboard, Create Project, Projects/Generated Code, Agent Pipeline,
                    Test Results, Security Scan, Reports, Settings
-docs/design/       UI design references
 ```
 
 ## Limitations
