@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: ai-devsecure
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: DEVSECURE_BUS_SECRET
+        generateValue: true
+      - key: SEED
+        value: "1"

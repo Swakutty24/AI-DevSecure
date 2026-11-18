@@ -1,0 +1,9 @@
+.git
+**/.DS_Store
+**/__pycache__
+**/.pytest_cache
+backend/.venv
+backend/data
+backend/workspaces
+frontend/node_modules
+frontend/dist
